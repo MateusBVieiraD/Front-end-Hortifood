@@ -1,11 +1,12 @@
-
 import './App.css'
+import Header from './componentes/header/Header';
+import Inicio from './componentes/Inicio/Inicio';
 
 function App() {
- 
   return (
     <>
-      <a href="">oi</a>
+      <Header />
+      <Inicio />
     </>
   )
 }
