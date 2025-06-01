@@ -21,7 +21,7 @@
     list-style: none;
 }
 
-a{
+.navegacao > ul > li > a{
     text-decoration: none;
     color: #424040
 }
