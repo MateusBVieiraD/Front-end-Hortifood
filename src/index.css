@@ -1,6 +1,30 @@
+:root{
+    --main-green: #8cb369;
+    --secondary-green: #29524a;
+    --third-green: #cffaab;
+    --main-black: #06070e;
+    --main-blue: #75b8c8;
+    --secondary-blue: #95b8d1;
+    --main-white:#eaeaea;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('C:\Users\Mateus\Desktop\projeto-hortifood\front-end hortifood\src\font\Graphik-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Graphik;
+}
+
+html{
+    background-color: var(--main-white);
+    scroll-behavior: smooth;
 }

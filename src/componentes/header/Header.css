@@ -1,6 +1,6 @@
 .header{
-    background-color: #b4ffc7;
-    height: 8vh;
+    background-color: var(--main-green);
+    height: 10vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -23,7 +23,7 @@
 
 .navegacao > ul > li > a{
     text-decoration: none;
-    color: #424040
+    color: var(--main-black)
 }
 
 .logo{

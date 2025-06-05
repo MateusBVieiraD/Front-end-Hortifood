@@ -1,0 +1,7 @@
+.texto{
+    display: flex;
+    text-align: center;
+    color: var(--main-black);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
