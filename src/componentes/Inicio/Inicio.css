@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 20px 30px;
     gap: 50px;
 }
 
@@ -17,10 +17,13 @@
     
 }
 
+.texto > h2{
+    padding: 20px;
+}
 
 .imagem-inicio > img{
-    width: 275px;
-    height: 250px;
+    width: 375px;
+    height: 350px;
 }
 
 .inicio-botoes{
@@ -70,7 +73,8 @@
     align-items: center;
 }
 
-.link:hover{
+.link a:hover{
     text-decoration: underline;
 
 }
+

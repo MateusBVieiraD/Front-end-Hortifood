@@ -8,11 +8,7 @@ function Header(){
                 <img src="src\assets\favicon.ico" alt="logo" />
                 </div>
             <nav className='navegacao'>
-                <ul>
-                    <li><a href="">Loja</a></li>
-                    <li><a href="">Entregador</a></li>
-                    <li><a href="">Cliente</a></li>
-                </ul>
+                <h1 className='texto'>Hortifood</h1>
             </nav>
         </header>
         </>

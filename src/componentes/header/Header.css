@@ -3,28 +3,18 @@
     height: 10vh;
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    gap: 100px;
+    justify-content: start;
+    gap: 20px;
     font-size: 1.4rem;
-    padding: 20px;
+    padding: 20px 30px;
     align-items: center;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 
-.navegacao > ul{
-    display: flex;
-    gap: 20px;
-}
 
-.navegacao > ul > li{
-    list-style: none;
-}
 
-.navegacao > ul > li > a{
-    text-decoration: none;
-    color: var(--main-black)
-}
+
 
 .logo{
     display: flex;

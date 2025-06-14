@@ -1,0 +1,24 @@
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid;
+    color: #e8e8e8;
+    display: flex;
+    justify-content: start;
+}
+
+.botoes{
+    gap: 10px;    
+
+}
