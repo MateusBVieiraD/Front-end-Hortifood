@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { use, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Inicio/Inicio.css";
 import "./ModalLogin.css";
 
@@ -10,6 +11,7 @@ const ModalLogin: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState("");
+  const navigate = useNavigate();
 
   const getLoginEndpoint = (type: UserType) => {
     switch (type) {
@@ -62,9 +64,20 @@ const ModalLogin: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
       console.log("Token JWT gerado:", token);
       localStorage.setItem("token", token);
-
-      alert("Login realizado com sucesso!");
+      localStorage.setItem("email", email);
+      localStorage.setItem("userType", userType ?? "");
+      if(userType === "cliente") {
+      navigate("/HomeCliente");
       onClose();
+      }
+      else if(userType === "loja") {
+        navigate("/HomeLoja");
+        onClose();
+      }
+      else if(userType === "entregador") {
+        navigate("/HomeEntregador");
+        onClose();
+      }
     } catch (err: any) {
       setErro(err.message);
     } finally {

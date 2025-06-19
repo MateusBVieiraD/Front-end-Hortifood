@@ -43,7 +43,7 @@ const CriarContaLoja: React.FC = () => {
     setSucesso("");
     try {
       const res = await fetch(
-        "http://localhost:8080/api/lojacontroller/criarloja",
+        "http://localhost:8080/api/lojacontroller/criarLoja",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
