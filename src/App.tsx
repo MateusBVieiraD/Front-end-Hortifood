@@ -9,6 +9,7 @@ import CriarContaLoja from "./componentes/CriarContaLoja/CriarContaLoja";
 import HomeCliente from "./componentes/HomeCliente/HomeCliente";
 import HomeLoja from "./componentes/HomeLoja/HomeLoja";
 import HomeEntregador from "./componentes/HomeEntregador/HomeEntregador";
+import AlterarCliente from "./componentes/AlterarCliente/AlterarCliente";
 
 function App() {
   return (

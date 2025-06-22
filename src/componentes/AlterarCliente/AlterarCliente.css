@@ -37,3 +37,32 @@
 .campo-form input::placeholder {
     color: #888;
 }
+
+.formulario-alterar {
+    max-height: 65vh;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: var(--main-green);
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    color: black;
+    padding: 24px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: #b2dfdb #f0f0f0;
+}
+.formulario-alterar::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 8px;
+    background: #f0f0f0;
+}
+.formulario-alterar::-webkit-scrollbar-thumb {
+    background: #b2dfdb;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}
+.formulario-alterar::-webkit-scrollbar-thumb:hover {
+    background: #4caf50;
+}

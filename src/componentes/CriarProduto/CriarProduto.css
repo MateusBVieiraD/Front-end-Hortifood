@@ -1,0 +1,101 @@
+.criar-cardapio-container {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.criar-cardapio-container h2 {
+    margin-bottom: 12px;
+    color: #388e3c;
+    text-align: center;
+}
+
+.criar-cardapio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.criar-cardapio-form input,
+.criar-cardapio-form textarea {
+    color: #000 !important; /* força cor preta em todos os inputs */
+    background: #f8fafb;
+    padding: 10px;
+    border: 1px solid #b2dfdb; /* ajuste aqui a cor da borda */
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.criar-cardapio-form input:focus,
+.criar-cardapio-form textarea:focus {
+    border: 1.5px solid #4caf50;
+}
+
+.criar-cardapio-form textarea {
+    resize: vertical;
+    min-height: 40px;
+    max-height: 120px;
+}
+
+.criar-cardapio-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.criar-cardapio-actions button {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.criar-cardapio-actions button:hover {
+    background: #388e3c;
+}
+
+.criar-cardapio-list {
+    margin-top: 18px;
+    padding: 0;
+    list-style: none;
+}
+
+.criar-cardapio-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.criar-cardapio-list strong {
+    color: #222;
+}
+
+.criar-cardapio-list button {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    margin-left: 12px;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.criar-cardapio-list button:hover {
+    background: #b71c1c;
+}

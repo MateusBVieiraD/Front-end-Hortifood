@@ -1,8 +1,10 @@
 import "./HomeCliente.css";
 import { useEffect, useState } from "react";
+import ModalAlterarCliente from "../ModalAlterarCliente/ModalAlterarCliente";
 
 const Home = () => {
   const [nome, setNome] = useState<string>("Usuário");
+  const [showAlterarModal, setShowAlterarModal] = useState(false);
 
   // Função para buscar o nome do usuário
   const fetchNome = async () => {
@@ -49,6 +51,10 @@ const Home = () => {
     }
   };
 
+  const alterarCliente = () => {
+    setShowAlterarModal(true);
+  }
+
   useEffect(() => {
     fetchNome();
   }, []);
@@ -61,9 +67,25 @@ const Home = () => {
             <h1>
               Bem-vindo(a), {nome}!
             </h1>
+            <button onClick={alterarCliente}
+              style={{ position: "absolute",
+                      top: "30px",
+                      right: "20px",
+                      padding: "10px 20px",
+                      backgroundColor: "#4CAF50",
+                      color: "#000",
+                      border: "none",
+                      borderRadius: "8px",
+                      cursor: "pointer" }}>
+              Alterar Informações
+            </button>
           </div>
         </div>
       </div>
+      {/* Modal para alterar informações do cliente */}
+      {showAlterarModal && (
+        <ModalAlterarCliente onClose={() => setShowAlterarModal(false)} />
+      )}
     </div>
   );
 };
