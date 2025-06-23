@@ -6,8 +6,8 @@ import ModalAlterarCliente from "../ModalAlterarCliente/ModalAlterarCliente";
 const ModalPagamento: React.FC<{
   produto: any;
   onClose: () => void;
-}> = ({ produto, onClose }) => {
-  const [metodo, setMetodo] = useState<string>("PIX");
+  endereco: string;
+}> = ({ produto, onClose, endereco }) => {
   const [loading, setLoading] = useState(false);
   const [mensagem, setMensagem] = useState<string | null>(null);
   const [numero, setNumero] = useState<string>("");
@@ -18,15 +18,12 @@ const ModalPagamento: React.FC<{
     setLoading(true);
     setMensagem(null);
     try {
-      // Ajusta dataVencimento para o formato "yyyy-MM-dd" (LocalDate)
       let dataVenc = dataVencimento;
       if (dataVencimento && /^\d{4}-\d{2}$/.test(dataVencimento)) {
-        // Se vier "2026-08", transforma para "2026-08-01"
         dataVenc = `${dataVencimento}-01`;
       }
-
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:8080/api/metodopagamento/criarmetodopagamento", {
+      const resPagamento = await fetch("http://localhost:8080/api/metodopagamento/criarmetodopagamento", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +35,7 @@ const ModalPagamento: React.FC<{
           dataVencimento: dataVenc
         })
       });
-      if (res.ok) {
+      if (resPagamento.ok) {
         setMensagem("Compra registrada com sucesso!");
       } else {
         setMensagem("Erro ao registrar compra.");
@@ -60,10 +57,9 @@ const ModalPagamento: React.FC<{
           <label style={{ color: "#000" }}>
             Método de pagamento:
             <select
-              value={metodo}
-              onChange={e => setMetodo(e.target.value)}
+              value="Cartão"
               style={{ marginLeft: 8, color: "#000" }}
-              disabled // Apenas cartão, então desabilita o select
+              disabled
             >
               <option value="Cartão">Cartão</option>
             </select>
@@ -135,18 +131,20 @@ const ModalPagamento: React.FC<{
 
 const Home = () => {
   const [nome, setNome] = useState<string>("Usuário");
+  const [endereco, setEndereco] = useState<string>("");
   const [showAlterarModal, setShowAlterarModal] = useState(false);
   const [lojas, setLojas] = useState<any[]>([]);
   const [produtos, setProdutos] = useState<any[]>([]);
   const [produtoComprando, setProdutoComprando] = useState<any | null>(null);
 
-  // Função para buscar o nome do usuário
-  const fetchNome = async () => {
+  // Função para buscar o nome e endereço do usuário
+  const fetchNomeEEndereco = async () => {
     const token = localStorage.getItem("token");
     const email = localStorage.getItem("email");
 
     if (!token || !email) {
       setNome("Usuário");
+      setEndereco("");
       return;
     }
 
@@ -162,15 +160,18 @@ const Home = () => {
 
       if (!res.ok) {
         setNome("Usuário");
+        setEndereco("");
         return;
       }
 
       const text = await res.text();
       let nomeUsuario = "Usuário";
+      let enderecoUsuario = "";
       try {
         const data = JSON.parse(text);
-        if (typeof data === "object" && data !== null && data.nome) {
-          nomeUsuario = data.nome;
+        if (typeof data === "object" && data !== null) {
+          if (data.nome) nomeUsuario = data.nome;
+          if (data.endereco) enderecoUsuario = data.endereco;
         } else if (typeof data === "string") {
           nomeUsuario = data.replace(/^"|"$/g, "");
         }
@@ -178,8 +179,10 @@ const Home = () => {
         nomeUsuario = text || "Usuário";
       }
       setNome(nomeUsuario || "Usuário");
+      setEndereco(enderecoUsuario);
     } catch {
       setNome("Usuário");
+      setEndereco("");
     }
   };
 
@@ -208,7 +211,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchNome();
+    fetchNomeEEndereco();
     fetchLojas();
     fetchProdutos();
   }, []);
@@ -357,6 +360,7 @@ const Home = () => {
         <ModalPagamento
           produto={produtoComprando}
           onClose={() => setProdutoComprando(null)}
+          endereco={endereco}
         />
       )}
     </div>
